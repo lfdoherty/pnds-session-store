@@ -1,7 +1,7 @@
 {
   "name": "pnds-session-store",
-  "version": "0.0.1",
-  "description": "A fast in-memory session store built on persistent-native-ds.",
+  "version": "0.0.3",
+  "description": "A fast in-memory session store for express-session built on persistent-native-ds.",
   "main": "./index",
   "author": "Liam Doherty",
   "dependencies": {
@@ -9,5 +9,6 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "repository": "https://github.com/lfdoherty/pnds-session-store.git"
 }

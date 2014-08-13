@@ -1,4 +1,6 @@
 
+//var events = require('events');
+
 var persistent = require('persistent-native-ds')
 
 exports.make = function(name, cb){
@@ -11,8 +13,11 @@ function PndsSessionStore(m){
 	this.m = m
 }
 
+require('util').inherits(PndsSessionStore, require('events').EventEmitter);
+//PndsSessionStore.prototype.__proto__ = events.EventEmitter.prototype;
+
 PndsSessionStore.prototype.get = function(sid, cb){
-	cb(this.m.get(sid))
+	cb(undefined, this.m.get(sid))
 }
 PndsSessionStore.prototype.set = function(sid, session, cb){
 	this.m.put(sid, session)
@@ -24,7 +29,7 @@ PndsSessionStore.prototype.destroy = function(sid, cb){
 }
 
 PndsSessionStore.prototype.length = function(cb){
-	cb(this.m.size())	
+	cb(undefined, this.m.size())	
 }
 PndsSessionStore.prototype.clear = function(cb){
 	this.m.clear()
